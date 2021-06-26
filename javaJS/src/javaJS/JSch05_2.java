@@ -1,5 +1,6 @@
 package javaJS;
 import java.util.Scanner;
+
 import java.util.Arrays; // ctrl+shift+o 자동으로 import문 추가 중요!!
 public class JSch05_2 {
 
@@ -18,6 +19,28 @@ public class JSch05_2 {
 //			System.out.println(strArr[tmp]); // 0~2
 //		}
 		
+		/* String 클래스 는 char[] 와 매서드(기능)를 결합한것
+		 * String 클래스 = char[] + 매서드(기능)  // 문자뱌열 
+		 * String 클래스는 내용을 변경할 수 없다. (read only)  
+		 * 주요 매서드
+		 * char charAt(int index)               문자열에서 해당위피(index)에 있는 문자를 반환한다.
+		 * int length()							문자열의 길이를 반환한다.
+		 * String substring(int from, int to)	문자열에서 해당 범위 (from~to)의 문자열을 반환한다 (to는 포함 안 됨)
+		 * boolean equals(Object obj)			문자열의 내용이 같은지 확인한다. 같은면 true 다르면 false
+		 * char[] toCharArray() 				문자열을 문자배열 (char[])로 변환해서 반환한다. 
+		 */
+		
+//		String str = "ABCDE";
+//		char ch = str.charAt(2);
+//		String str2 = str.substring(1,4);
+//		String str3 = str.substring(1, str.length());
+//		String str4 = str.substring(1);
+//		
+//		System.out.println(ch);
+//		System.out.println(str2); //BCD
+//		System.out.println(str3); //
+//		System.out.println(str4); //1부터 끝까지 
+		 
 		/* 커맨드 라인을 통해 일력받기 
 		 * https://www.youtube.com/watch?v=8yjC3t7j-eg&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=45
 		 * 싷랭의 Run Configurations... -> Arguments 여기다가 입력 abc 123 "Hello World"
@@ -57,27 +80,57 @@ public class JSch05_2 {
 //			}
 //		}
 //		System.out.println("sum=" +sum);
-		int korTotal = 0, engtotal=0 ,mathtotal=0;
-		System.out.println("번호  국어  영어  수학  총점  평균");
-		System.out.println("======================");
+//		int korTotal = 0, engtotal=0 ,mathtotal=0;
+//		System.out.println("번호  국어  영어  수학  총점  평균");
+//		System.out.println("======================");
+//		
+//		for(int i = 0; i < score.length;i++) {
+//			int sum = 0; 		//개인별 총점
+//			float avg = 0.0f;   //개인별 평균
+//			korTotal += score[i][0];
+//			engtotal += score[i][1];
+//			mathtotal += score[i][2];
+//			System.out.printf("%3d",i+1);
+//			
+//			for(int j = 0; j < score[i].length; j++) {
+//				sum += score[i][j];
+//				System.out.printf("%5d",score[i][j]);
+//			}
+//			avg = sum/(float)score[i].length;
+//			System.out.printf("%5d %5.1f%n",sum,avg);
+//			
+//		}
+//		System.out.println("===================== ");
+//		System.out.printf("총점:%4d%4d%4d",korTotal,engtotal,mathtotal);
 		
-		for(int i = 0; i < score.length;i++) {
-			int sum = 0; 		//개인별 총점
-			float avg = 0.0f;   //개인별 평균
-			korTotal += score[i][0];
-			engtotal += score[i][1];
-			mathtotal += score[i][2];
-			System.out.printf("%3d",i+1);
-			
-			for(int j = 0; j < score[i].length; j++) {
-				sum += score[i][j];
-				System.out.printf("%5d",score[i][j]);
-			}
-			avg = sum/(float)score[i].length;
-			System.out.printf("%5d %5.1f%n",sum,avg);
-			
-		}
-		System.out.println("===================== ");
-		System.out.printf("총점:%4d%4d%4d",korTotal,engtotal,mathtotal);
+		/* Arrays로 배열 다루기 Math클래스 수학관련 매서드 모아놓음 ex) round() random()
+		 * 배열의 비교와 출력 - equals() toString()  == 참조변수 값 비교이므로 안됨!
+		 * int[] arr = {0,1,2,3,4};
+		 * int[][] arr2D= {{11,12}, {21,22}};
+		 * System.out.println(Arrays.toString(arr));         // [0, 1, 2, 3 ,4]  //1차원
+		 * System.out.println(Arrays.deepToString(arr2D));   // [[11, 22], [21, 22]]
+		 * 
+		 * String[][] str2D = new String[][]{{"aaa","bbb"},{"AAA","BBB"}};
+		 * String[][] str2D2 = new String[][]{{"aaa","bbb"},{"AAA","BBB"}};
+		 * System.out.println(Arrays.equals(str2D,str2D2));       //false  // 1차원 배열일 떄 
+		 * System.out.println(Arrays.deepEquals(str2D,str2D2));   // true  //2차원 다차원일때 deep!! 
+		 * 
+		 * 배열의 복사 copyOf(), copyOfRange()
+		 * int[] arr = {0,1,2,3,4};
+		 * int[] arr2 = Arrays.copyOf(arr, arr.length);// arr2=[0,1,2,3,4]
+		 * int[] arr3 = Arrays.copyOf(arr, 3);         // arr3=[0,1,2]  7이면  [0,1,2,3,4,0,0]
+		 * int[] arr4 = Arrays.copyOfRange(arr, 2, 4); // arr4=[2,3]
+		 * int[] arr5 = Arrays.copyOfRange(arr, 0, 7); // arr5=[0,1,2,3,4,0,0]
+		 * 
+		 * 배열의 정렬 sort()
+		 * int[] arr= {3,2,0,1,4};
+		 * Arrays.sort(arr); // 배열 arr을 정렬한다.    
+		 * System.out println(Arrays.toString(arr)); // [0,1,2,3,4] // 오름차순 정렬
+		 */
+		  String[][] str2D = new String[][]{{"aaa","bbb"},{"AAA","BBB"}};
+		  String[][] str2D2 = new String[][]{{"aaa","bbb"},{"AAA","BBB"}};
+		  System.out.println(Arrays.equals(str2D,str2D2));       //false  // 1차원 배열일 떄 
+		  System.out.println(Arrays.deepEquals(str2D,str2D2));   // true  //2차원 다차원일때 deep!! 
+		  
 	}
 }
