@@ -1,9 +1,8 @@
 package javaJS;
-import java.awt.CardLayout;
+
 import java.util.Scanner;
 
-import javax.naming.spi.DirStateFactory.Result;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
 
 class JSch06_2{
 	public static void main(String args[]) {
