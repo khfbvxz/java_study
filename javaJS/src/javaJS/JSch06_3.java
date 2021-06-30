@@ -14,6 +14,10 @@ class JSch06_3{
 		 * 			return b; // 참일 때와 거짓일 때 각각 return문 작성!!!
 		 * }
 		 */
+		
+		/* 반환값 return 옆 즉 작업결과로 반환될 값 타입이 일치 or 자동형변환(char,byte,short -> int)이 가능해야함!
+		 *      결과를 저장할 변수의 타입도 같아야함!
+		 */
 		MyMath1 mm = new MyMath1();  // 객체 생성!!
 		long result = mm.max(5l, 3l);  
 		long result5 = mm.min(5l, 3l);  
